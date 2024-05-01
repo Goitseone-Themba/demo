@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Test {
+
+static String encrypt(String plainText, int key) {
+
+    ArrayList<Character> cypherText = new ArrayList<Character>();
+
+    for(char i: plainText.toCharArray() ) {
+        cypherText.add((char) ((int) i + key));
+    }
+
+    return plainText + " has been encrypted to: " + cypherText;
+}
+
+static String decrypt(String cypherText, int key) {
+
+    ArrayList<Character> plainText = new ArrayList<Character>();
+
+    for(char i : cypherText.toCharArray()) {
+        plainText.add((char) ((int) i - key));
+    }
+
+    return cypherText + " has been decrypted into: " + plainText;
+}
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        String text = scan.nextLine();
+
+        System.out.println(encrypt(text, 2));
+
+        String cypherText = scan.nextLine();
+
+        System.out.println(decrypt(cypherText, 2));
+    }
+}
